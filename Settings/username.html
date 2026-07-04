@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Set Username</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <input type="text" class="username-input" placeholder="Enter your username">
+
+  <button class="back-button" onclick="goBack()">Back</button>
+  <button class="save-button" onclick="saveUsername()">Save</button>
+
+  <audio id="click-sound" src="snd/select.wav" preload="auto"></audio>
+
+  <script>
+    const clickSound = document.getElementById("click-sound");
+
+    function playClickSound() {
+      clickSound.currentTime = 0;
+      clickSound.play();
+    }
+
+    function saveUsername() {
+      playClickSound();
+      const username = document.getElementById("username-input").value.trim();
+      if (username) {
+        localStorage.setItem("welcomeUsername", username);
+        alert("Username saved!");
+      } else {
+        alert("Please enter a valid username.");
+      }
+    }
+
+    function goBack() {
+      playClickSound();
+      window.location.href = "settings.html";
+    }
+
+    window.onload = function () {
+      const saved = localStorage.getItem("welcomeUsername");
+      if (saved) {
+        document.getElementById("username-input").value = saved;
+      }
+    };
+  </script>
+</body>
+</html>

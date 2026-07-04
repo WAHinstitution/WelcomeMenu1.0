@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome Plus</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="viewer">
+    <button id="prev">⟨</button>
+    <img id="slide" src="slides/welcomeplus/Slide248.jpg" alt="Slide">
+    <button id="next">⟩</button>
+  </div>
+
+  <a href="index.html" class="return-button">Return to Main Menu</a>
+  
+  <audio id="bgm" src="bgm.mp3" autoplay loop hidden></audio>
+
+  <script>
+    let currentSlide = 248;
+    const minSlide = 248;
+    const maxSlide = 300;
+    const folder = 'welcomeplus';
+    const slideImg = document.getElementById("slide");
+
+    function updateSlide() {
+      slideImg.src = `slides/${folder}/Slide${currentSlide}.jpg`;
+    }
+
+    document.getElementById("prev").onclick = () => {
+      if (currentSlide > minSlide) {
+        currentSlide--;
+        updateSlide();
+      }
+    };
+
+    document.getElementById("next").onclick = () => {
+      if (currentSlide < maxSlide) {
+        currentSlide++;
+        updateSlide();
+      }
+    };
+	
+	document.addEventListener("DOMContentLoaded", () => {
+    const bgm = document.getElementById("bgm");
+
+    const resumeBGM = () => {
+      if (bgm && bgm.paused) {
+        bgm.play().catch(() => {});
+      }
+      // Remove listener after it's triggered once
+      document.removeEventListener("click", resumeBGM);
+    };
+
+    document.addEventListener("click", resumeBGM);
+  });
+  </script>
+</body>
+</html>

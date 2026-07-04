@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome Menu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Welcome Channel</h1>
+  <div class="menu-container">
+	<a href="welcomea.html" class="menu-button">Welcome Part A</a>
+    <a href="welcomeb.html" class="menu-button">Welcome Part B</a>
+    <a href="welcomeplus.html" class="menu-button">Welcome Plus</a>
+    <a href="welcomeinfinity.html" class="menu-button">Welcome Infinity</a>
+  </div>
+
+  <a href="http://welcome.wahinstitution.xyz" class="return-button">Return to Welcome Menu</a>
+  
+  <a href="download.html" class="download-button">Download Original pptx file</a>
+  
+  <audio id="hoverSound" src="hover.mp3" preload="auto"></audio>
+  <audio id="click-sound" src="click.mp3" preload="auto"></audio>
+  <audio id="bgm" src="bgm.mp3" autoplay loop hidden></audio>
+
+
+  <script>
+  const hoverSound = document.getElementById('hoverSound');
+  const clickSound = document.getElementById('clickSound');
+
+  const anchors = document.querySelectorAll('a');
+
+  anchors.forEach(anchor => {
+    anchor.addEventListener('mouseenter', () => {
+      hoverSound.currentTime = 0; 
+      hoverSound.play();
+    });
+
+    anchor.addEventListener('click', () => {
+      clickSound.currentTime = 0; 
+      clickSound.play();
+    });
+  });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const clickSound = document.getElementById("click-sound");
+
+    
+    const elements = document.querySelectorAll("a[href], button");
+
+    elements.forEach(el => {
+      el.addEventListener("click", e => {
+        if (!clickSound) return;
+
+        clickSound.currentTime = 0;
+        clickSound.play().catch(() => {});
+
+        if (el.tagName === "A" && !el.hasAttribute("target")) {
+          e.preventDefault();
+          const href = el.getAttribute("href");
+          if (href && href !== "#") {
+            setTimeout(() => window.location.href = href, 150);
+          }
+        }
+      });
+    });
+	const bgm = document.getElementById("bgm");
+
+    const resumeBGM = () => {
+      if (bgm && bgm.paused) {
+        bgm.play().catch(() => {});
+      }
+      
+      document.removeEventListener("click", resumeBGM);
+    };
+
+    document.addEventListener("click", resumeBGM);
+  });
+  </script>
+
+</body>
+</html>

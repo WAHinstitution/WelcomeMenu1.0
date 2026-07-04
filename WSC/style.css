@@ -1,0 +1,120 @@
+html {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-family: Comic Sans MS, sans-serif;
+	color: #34BEED;
+}
+
+header {
+	border-bottom: 3px dotted #999;
+	margin: 1rem;
+}
+
+button {
+	box-shadow: 1px 1px 12px #888;
+}
+
+.main-buttons {
+	width: 95%;
+	margin: 1rem;
+}
+
+.main-buttons button {
+	border: 1px solid #24beed;
+	margin: 1rem;
+	padding: 7rem;
+	max-width: 300px;
+	border-radius: 30px:
+}
+
+.main-buttons button:hover {
+	outline: 3px solid #34beed;
+}
+
+.virtual-welcome-button {
+	background-image: url(img/virtual-catalog.jpg);
+	background-size: contain;
+}
+
+.add-points-button {
+	background-image: url(img/add-points.jpg);
+	background-size: contain;
+}
+
+.shopping-guide-button {
+	background-image: url(img/shopping-guide.jpg);
+	background-size: contain;
+}
+
+.welcome-ware-button {
+	background-image: url(img/ware-catalog.jpg);
+	background-size: contain;
+}
+
+.lower-buttons {
+	margin-top: 3rem;
+}
+.lower-buttons button {
+	font-size: 18pt;
+	padding: 2rem;
+	margin: 1rem;
+	width: 360px;
+	border-radius: 60px;
+	border: 0;
+	background-color: rgb(230, 255, 242);
+}
+
+.lower-buttons button:hover {
+	background-color: #34beed;
+}
+
+.catalog-container {
+	width: 80vw;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #34beed;
+	padding: 1rem;
+	border-radius: 12px;
+	border: 3px solid #23abff;
+}
+
+.catalog-item {
+	margin: 1rem;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: left;
+	padding: 1rem;
+	border-radius: 12px;
+	border: 2px solid #23abff;
+	
+}
+
+.catalog-item:hover {
+	outline: 3px solid #23abff;
+}
+
+.catalog-item img {
+	height: 7rem;
+	margin: 1rem;
+}
+
+.catalog-item h3 {
+	color: #000;
+	font-size: 2rem;
+}
+
+a {
+	text-decoration-line: none;
+}
+
+.no-results-container {
+	margin: 10rem;
+}
+
+.news-container p {
+	color: black;
+	font-size: 1.5rem;
+	margin: 1rem;
+}

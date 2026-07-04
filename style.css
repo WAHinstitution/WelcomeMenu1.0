@@ -1,0 +1,129 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+section {
+    float: left;
+    height: 100%;
+    display: block;
+    text-align: center;
+    margin: 0;
+}
+
+.section {
+    background: url("img/bg.png") center 0% repeat-x;
+    background-size: auto;
+	background-repeat: repeat;
+}
+
+.horizon-prev,
+.horizon-next {
+    top: 50%;
+    margin-top: -24px;
+    z-index: 9999;
+    position: fixed;
+}
+
+.horizon-prev { left: 20px; }
+.horizon-next { right: 20px; }
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+    border: 8px solid #ffffff;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50px;
+    display: inline-block;
+    margin: 2px;
+    width: 20.715%;
+    height: 26%;
+    line-height: 200px;
+    text-align: center;
+    transition: all 1s;
+}
+
+a:hover {
+    border-color: #00e1ff;
+    transition: all 0.12s;
+}
+
+footer {
+    width: 100%;
+    height: 12%;
+    background: url("img/footer.png") top center no-repeat;
+    background-size: 100%;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+}
+
+#footer p {
+    font-size: 40px;
+    margin: 2% 0;
+}
+
+* {
+    font-family: "Comic Sans MS";
+    font-weight: 300;
+    font-size: 25pt;
+}
+
+@font-face {
+    font-family: "Comic Sans MS";
+    font-weight: 600;
+}
+
+.settings-button {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: auto;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #00e1ff;
+    color: #00e1ff;
+    font-size: 24px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    user-select: none;
+    transition: background-color 0.3s ease;
+	padding: 0 0.5rem;
+}
+
+.settings-button:hover {
+    background-color: #ddd;
+}
+
+.message-board-button {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: auto;
+    height: 40px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 1px solid #00e1ff;
+    color: #00e1ff;
+    font-size: 24px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+	padding: 0 0.5rem; 
+}
+
+.message-board-button:hover {
+    background-color: #ddd;
+}

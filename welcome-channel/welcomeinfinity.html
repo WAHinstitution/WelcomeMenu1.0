@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome Infinity</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="viewer">
+    <button id="prev">⟨</button>
+    <img id="slide" src="slides/welcomeinfinity/Slide301.jpg" alt="Slide">
+    <button id="next">⟩</button>
+  </div>
+
+  <a href="index.html" class="return-button">Return to Main Menu</a>
+  
+  <audio id="bgm" src="bgm.mp3" autoplay loop hidden></audio>
+
+  <script>
+    let currentSlide = 301;
+    const minSlide = 301;
+    const folder = 'welcomeinfinity';
+    const slideImg = document.getElementById("slide");
+
+    function slideExists(path, callback) {
+      const img = new Image();
+      img.onload = () => callback(true);
+      img.onerror = () => callback(false);
+      img.src = path;
+    }
+
+    function updateSlide() {
+      const path = `slides/${folder}/Slide${currentSlide}.jpg`;
+      slideImg.src = path;
+    }
+
+    document.getElementById("prev").onclick = () => {
+      if (currentSlide > minSlide) {
+        currentSlide--;
+        updateSlide();
+      }
+    };
+
+    document.getElementById("next").onclick = () => {
+      const nextSlide = currentSlide + 1;
+      const nextPath = `slides/${folder}/Slide${nextSlide}.jpg`;
+
+      slideExists(nextPath, (exists) => {
+        if (exists) {
+          currentSlide++;
+          updateSlide();
+        }
+      });
+    };
+	
+	document.addEventListener("DOMContentLoaded", () => {
+    const bgm = document.getElementById("bgm");
+
+    const resumeBGM = () => {
+      if (bgm && bgm.paused) {
+        bgm.play().catch(() => {});
+      }
+      // Remove listener after it's triggered once
+      document.removeEventListener("click", resumeBGM);
+    };
+
+    document.addEventListener("click", resumeBGM);
+  });
+  </script>
+</body>
+</html>

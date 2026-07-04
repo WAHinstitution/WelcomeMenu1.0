@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: sans-serif;
+  background-image: url("img/bg.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.container {
+  padding: 20px;
+  border-radius: 8px;  
+}
+
+.helpcat {
+  display: flex;
+  justify-content: center;
+}
+
+#cat {
+  cursor: pointer;
+}
+
+.news {
+	font-size: 1.5rem;
+	background-color: #2C4132ee;
+	color: #fff;
+	padding: 1rem;
+	border-radius: 8px;
+	text-align: center;
+	border: none;
+	margin: 0;
+	margin-bottom: 12rem;
+}
+
+
+/* Controls row at bottom (currently outside main panel layout) */
+.controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  height: 75px;
+  background-color: linear-gradient(#ffffff, #c2c2c2);
+}
+
+.controls button {
+  flex: 1;
+  border: none;
+  background-image: linear-gradient(#6D8E73ee, #2C4132ee, #333331ee);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  border-right: 3px solid #000000;
+  border-top: 3px solid #000000;
+}
+
+.controls button:hover {
+  background-image: linear-gradient(#ffffff, #ffffffee);
+  color: black;
+  border-top: none;
+}
+.controls button:active {
+  background-image: linear-gradient(#ffffff, #ffffffee);
+  color: black;
+  border-top: none;
+  height: 70px;
+  transform: translateY(10px);
+}

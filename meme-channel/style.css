@@ -1,0 +1,15 @@
+body {
+  font-family: Comic Sans MS, sans-serif;
+  text-align: center;
+  margin: 2rem;
+}
+
+canvas {
+  border: 1px solid #ccc;
+  max-width: 100%;
+}
+
+input, button {
+  margin: 0.5rem;
+  padding: 0.5rem;
+}

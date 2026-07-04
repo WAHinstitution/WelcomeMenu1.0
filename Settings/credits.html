@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Credits</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+
+
+    function polyAudio(path, poolSize = 16) {
+      const elems = [];
+      let index = 0;
+      for (let i = 0; i < poolSize; i++) {
+        elems.push(new Audio(path));
+      }
+      return {
+        play() {
+          const audio = elems[index];
+          if (!audio) {
+            console.error('Audio element undefined at index', index);
+            return;
+          }
+          if (window.chrome) audio.load();
+          audio.play().catch(e => {
+            console.warn('Audio play failed:', e);
+          });
+          index = (index + 1) % poolSize;
+        }
+      };
+    }
+
+    
+    const hover = polyAudio('snd/hover.mp3');
+
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a').forEach(el => {
+        el.addEventListener('mouseover', () => hover.play());
+      });
+    });
+
+document.addEventListener('click', () => {
+  const menuAudio = document.getElementById('menu');
+  if (menuAudio.muted) {
+    menuAudio.muted = false;
+    menuAudio.play();
+  }
+}, { once: true });
+</script>
+
+</head>
+<body>
+  <h1>Credits:</h1>
+  <div class="credits-box">
+	<div class="creditstext">
+		<h5>Welcome Creators:</h5>
+		<p>
+		<a href="https://youtube.com/@Isaac_The_Nerd">Isaac The Nerd</a><br>
+		<a href="https://youtube.com/@GeritetheGroundhog">GertietheGroundhog</a>
+		</p>
+		<h5>Developers:</h5>
+		<p>Isaac The Nerd</p>
+		<h5>Testers:</h5>
+		<p>Muffy</p>
+		<h5>Inspired by:</h5>
+		<p>Nintendo Wii<br>
+		<a href="https://clubwumpus.github.io/wumpmenu/">Wump Menu</a></p>
+	</div>
+  </div>
+  <button class="back-button" onclick="location.href='settings.html'">Back</button>
+</body>
+
+<audio src="snd/menu.mp3" loop id="menu" autoplay></audio>
+
+</html>

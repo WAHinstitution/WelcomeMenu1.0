@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Welcome System Settings</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <script>
+
+    function polyAudio(path, poolSize = 16) {
+      const elems = [];
+      let index = 0;
+      for (let i = 0; i < poolSize; i++) {
+        elems.push(new Audio(path));
+      }
+      return {
+        play() {
+          const audio = elems[index];
+          if (!audio) {
+            console.error('Audio element undefined at index', index);
+            return;
+          }
+          if (window.chrome) audio.load();
+          audio.play().catch(e => {
+            console.warn('Audio play failed:', e);
+          });
+          index = (index + 1) % poolSize;
+        }
+      };
+    }
+
+    const hover = polyAudio('snd/hover.mp3');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a').forEach(el => {
+        el.addEventListener('mouseover', () => hover.play());
+      });
+    });
+
+document.addEventListener('click', () => {
+  const menuAudio = document.getElementById('menu');
+  if (menuAudio.muted) {
+    menuAudio.muted = false;
+    menuAudio.play();
+  }
+}, { once: true });
+</script>
+
+</head>
+<body>
+  <h1>Settings</h1>
+  <div class="button-column">
+    <button class="wii-button" onclick="location.href='username.html'">Username</button>
+    <button class="wii-button" onclick="location.href='about.html'">About Welcome</button>
+	<button class="wii-button" onclick="location.href='credits.html'">Credits</button>
+    <button id="format-btn" class="wii-button" onclick="location.href='https://www.youtube.com/watch?v=dQw4w9WgXcQ'">Format Welcome System Memory</button>
+  </div>
+
+  <button class="back-button" onclick="location.href='../index.html'">Back</button>
+</body>
+
+<audio src="snd/menu.mp3" loop id="menu" autoplay></audio>
+
+</html>

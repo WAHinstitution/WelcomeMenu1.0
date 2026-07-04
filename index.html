@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="icon" href="./favicon.ico" type="image/x-icon">
+	<link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <meta name="description" content="Access to everything Welcome">
+    <meta name="author" content="isaacthesoap">
+	<title>Welcome System Menu</title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link href="style.css" rel="stylesheet" type="text/css">
+<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/jquery.horizonScroll.js"></script>
+<script>if (window.module) module = window.module;</script>
+	
+<script>
+function startTime() {
+var today = new Date();
+  var hours = today.getHours();
+  var minutes = today.getMinutes();
+  var ampm = hours >= 12 ? 'pm' : 'am';
+  hours = hours % 12;
+  hours = hours ? hours : 12; 
+  minutes = minutes < 10 ? '0'+minutes : minutes;
+  var strTime = hours + ':' + minutes + ' ' + ampm;
+  document.getElementById('time').innerHTML = strTime;
+    var t = setTimeout(startTime, 500);
+}
+
+    function polyAudio(path, poolSize = 16) {
+      const elems = [];
+      let index = 0;
+      for (let i = 0; i < poolSize; i++) {
+        elems.push(new Audio(path));
+      }
+      return {
+        play() {
+          const audio = elems[index];
+          if (!audio) {
+            console.error('Audio element undefined at index', index);
+            return;
+          }
+          if (window.chrome) audio.load();
+          audio.play().catch(e => {
+            console.warn('Audio play failed:', e);
+          });
+          index = (index + 1) % poolSize;
+        }
+      };
+    }
+
+    const hover = polyAudio('snd/hover.mp3');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('a').forEach(el => {
+        el.addEventListener('mouseover', () => hover.play());
+      });
+    });
+
+document.addEventListener('click', () => {
+  const menuAudio = document.getElementById('menu');
+  if (menuAudio.muted) {
+    menuAudio.muted = false;
+    menuAudio.play();
+  }
+}, { once: true });
+
+</script>
+	
+</head>
+<body onLoad="startTime();">
+
+<div class="horizon-prev"><img src="img/l-arrow.png"></div>
+<div class="horizon-next"><img src="img/r-arrow.png"></div>
+
+<section data-role="section" id="section-section1" class="section">
+<a " href="http://welcome.wahinstitution.xyz/welcome-channel/index.html" style="background-image:    url(img/welcome.webp);"> </a>
+<a " href="http://welcome.wahinstitution.xyz/meme-channel" style="background-image:    url(img/memechannel.gif);"> </a>
+<a " href="http://welcome.wahinstitution.xyz/photo-channel" style="background-image:    url(img/photo.jpg);"> </a>
+<a " href="http://welcome.wahinstitution.xyz/WSC" style="background-image:    url(img/WSC.png);"> </a>
+<a " href="http://welcome.wahinstitution.xyz/forecast" style="background-image:    url(img/forecast.jpg);"> </a>
+<a " href="http://welcome.wahinstitution.xyz/news" style="background-image:    url(img/news.png);"> </a>
+<a " href="http://welcome.wahinstitution.xyz/markbrew" style="background-image:    url(img/markbrew.jpg);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+</section>
+<section data-role="section" id="section-section2" class="section">
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+</section>
+<section data-role="section" id="section-section3" class="section">
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+</section>
+<section data-role="section" id="section-section4" class="section">
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+<a " href="#" style="background-image:    url(img/default.webp);"> </a>
+</section>
+
+<footer data-role="footer" id="footer">
+<a href="Settings/settings.html" class="settings-button">Settings</a>
+<p id="time"></p>
+<a href="msg/index.html" class="message-board-button">Message Board</a>
+</footer>
+
+<script type="text/javascript">
+    $('section').horizon();
+</script>
+
+
+</body>
+<audio src="snd/menu.mp3" loop id="menu" autoplay></audio>
+</html>

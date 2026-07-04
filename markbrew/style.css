@@ -1,0 +1,16 @@
+html {
+	text-align: center;
+	background-image: url(img/bg.webp);
+	background-size: cover;
+}
+
+body {
+	background-color: #00f4;
+	height: 100vh;
+}
+
+button {
+	margin: 1rem;
+	padding: 1rem;
+	border-radius: 12px;
+}
